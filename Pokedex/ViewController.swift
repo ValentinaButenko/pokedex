@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pokemon = [Pokemon]()
+    var musicPlayer: AVAudioPlayer!
+    var toggleState = 1
     
 
     override func viewDidLoad() {
@@ -22,8 +25,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         
         parsePokemonCsv()
+        playMusic()
 
     }
+    
+    func playMusic(){
+        
+        do{
+            try musicPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pokemonMusic", ofType: "mp3")!))
+                musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = -1
+                musicPlayer.play()
+            
+        }catch let err as NSError{
+            print(err.debugDescription)
+        }
+        
+            }
+    
+    
     
     func parsePokemonCsv(){
     
@@ -49,6 +69,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     }
     
+    @IBAction func stopMusic(sender: UIButton!) {
+        
+        if toggleState == 1{
+            musicPlayer.pause()
+            sender.alpha = 0.2
+            toggleState = 2
+        }else{
+            musicPlayer.play()
+            sender.alpha = 1.0
+            toggleState = 1
+        }
+
+    }
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
