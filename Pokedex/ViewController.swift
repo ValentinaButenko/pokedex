@@ -42,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         do{
             try musicPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pokemonMusic", ofType: "mp3")!))
                 musicPlayer.prepareToPlay()
-            musicPlayer.numberOfLoops = -1
+                musicPlayer.numberOfLoops = -1
                 musicPlayer.play()
             
         }catch let err as NSError{
@@ -113,9 +113,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
+    
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        let poke: Pokemon!
+        
+        if inSearchMode{
+            poke = pokemonSearch[indexPath.row]
+        } else {
+            poke = pokemon[indexPath.row]
+        }
+        
+        performSegueWithIdentifier("PokemonDetailVC", sender: poke)
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -139,6 +152,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         view.endEditing(true)
     }
     
+    
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
@@ -154,6 +169,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         }
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // check for segue name
+        if segue.identifier == "PokemonDetailVC"{
+            
+            // check for segue destination VC
+            if let detailsVC = segue.destinationViewController as? PokemonDetailVC{
+                
+                // check for sender
+                if let tappedPoke = sender as? Pokemon{
+                    
+                    // transfer tapped object to the called VC
+                    detailsVC.pokemon = tappedPoke
+                }
+            }
+        }
     }
 
 }

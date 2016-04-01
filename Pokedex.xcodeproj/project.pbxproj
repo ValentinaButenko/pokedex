@@ -18,6 +18,7 @@
 		F69106761CAD03C600C6ADF8 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69106751CAD03C600C6ADF8 /* csv.swift */; };
 		F691067B1CAD0C5E00C6ADF8 /* pokemonFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F691067A1CAD0C5E00C6ADF8 /* pokemonFont.ttf */; };
 		F691067D1CAD16E000C6ADF8 /* pokemonMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F691067C1CAD16E000C6ADF8 /* pokemonMusic.mp3 */; };
+		F6A312C11CAE5A4C00218355 /* PokemonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A312C01CAE5A4C00218355 /* PokemonDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F69106751CAD03C600C6ADF8 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		F691067A1CAD0C5E00C6ADF8 /* pokemonFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemonFont.ttf; sourceTree = "<group>"; };
 		F691067C1CAD16E000C6ADF8 /* pokemonMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pokemonMusic.mp3; sourceTree = "<group>"; };
+		F6A312C01CAE5A4C00218355 /* PokemonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				F691065C1CAC1B4A00C6ADF8 /* ViewController.swift */,
+				F6A312C01CAE5A4C00218355 /* PokemonDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				F69106741CAC2EA900C6ADF8 /* PokeCell.swift in Sources */,
 				F691065D1CAC1B4A00C6ADF8 /* ViewController.swift in Sources */,
 				F691065B1CAC1B4A00C6ADF8 /* AppDelegate.swift in Sources */,
+				F6A312C11CAE5A4C00218355 /* PokemonDetailVC.swift in Sources */,
 				F69106721CAC231100C6ADF8 /* Pokemon.swift in Sources */,
 				F69106761CAD03C600C6ADF8 /* csv.swift in Sources */,
 			);
