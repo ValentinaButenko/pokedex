@@ -184,6 +184,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     // transfer tapped object to the called VC
                     detailsVC.pokemon = tappedPoke
+                    musicPlayer.pause()
                 }
             }
         }

@@ -10,14 +10,30 @@ import UIKit
 
 class PokemonDetailVC: UIViewController {
     
+    @IBOutlet weak var pokemonNameLbl: UILabel!
+    @IBOutlet weak var pokemonImg: UIImageView!
+    @IBOutlet weak var pokemonDetailsLbl: UILabel!
+    @IBOutlet weak var pokemonTypeLbl: UILabel!
+    @IBOutlet weak var pokemonDefLbl: UILabel!
+    @IBOutlet weak var pokemonHeightLbl: UILabel!
+    @IBOutlet weak var pokemonWeightLbl: UILabel!
+    @IBOutlet weak var pokedexIDLbl: UILabel!
+    @IBOutlet weak var pokemonBaseAttLbl: UILabel!
+    @IBOutlet weak var nextEvoLbl: UILabel!
+    @IBOutlet weak var nextEvoImg: UIImageView!
+    @IBOutlet weak var next1EvoImg: UIImageView!
+    
     var pokemon: Pokemon!
     
-    @IBOutlet weak var testLbl: UILabel!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        testLbl.text = pokemon.name
+        pokemonNameLbl.text = pokemon.name.uppercaseString
+        pokedexIDLbl.text = "\(pokemon.pokedexId)"
+        pokemonImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        
 
     }
 
