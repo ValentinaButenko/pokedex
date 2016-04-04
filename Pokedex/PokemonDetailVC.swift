@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PokemonDetailVC: UIViewController {
     
@@ -33,6 +34,11 @@ class PokemonDetailVC: UIViewController {
         pokemonNameLbl.text = pokemon.name.uppercaseString
         pokedexIDLbl.text = "\(pokemon.pokedexId)"
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        
+        pokemon.DowloadPokemonDetails { () -> () in
+         // this will be called after Download is done 
+            
+        }
         
 
     }
