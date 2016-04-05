@@ -37,10 +37,43 @@ class PokemonDetailVC: UIViewController {
         
         pokemon.DowloadPokemonDetails { () -> () in
          // this will be called after Download is done 
+            print("HEYY")
+            
+            self.updateUI()
             
         }
         
 
+    }
+    
+    func updateUI(){
+        
+        pokemonDetailsLbl.text = pokemon.description
+        pokemonTypeLbl.text = pokemon.type
+        pokemonDefLbl.text = pokemon.defense
+        pokemonHeightLbl.text = pokemon.height
+        pokemonWeightLbl.text = pokemon.weight
+        pokemonBaseAttLbl.text = pokemon.attack
+        
+        if pokemon.nextEvoId == ""{
+            nextEvoLbl.text = "No Evolution!"
+            next1EvoImg.hidden = true
+        } else {
+            next1EvoImg.hidden = false
+            
+            var str = "Turn into \(pokemon.nextEvoTxt)"
+            
+            if pokemon.level != ""{
+                str += " at \(pokemon.level) LVL"
+            }
+            
+            nextEvoLbl.text = str
+        }
+        
+        
+        nextEvoImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        next1EvoImg.image = UIImage(named: "\(pokemon.nextEvoId)")
+        
     }
 
 
